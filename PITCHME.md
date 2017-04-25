@@ -1,9 +1,11 @@
 # CS 3450: UML and You 
-#### A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
+
+A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
+
 
 ---
 
-## UML
+#### UML
 
 * It's short for "Unified Modeling Language"
 * Goal: make sure we can all speak the same language in OOP design, independent of programming language.
@@ -19,14 +21,14 @@ Note how we phrased that: "communicating the **structure** of and **interaction*
     * Sequence diagrams
 +++
 
-## Object Structure
+#### Object Structure
 
 * Class diagrams: describes objects **statically**
 * Object diagrams: describes objects at **runtime**, and how an object's members may look over the course of its lifetime
 
 +++
 
-## Object Interaction
+#### Object Interaction
 
 * Sequence diagrams: describes ***execution flow*** by *showing method calls on the stack*
 
@@ -34,11 +36,13 @@ Note how we phrased that: "communicating the **structure** of and **interaction*
 
 There are others, but we won't go into them. Many needs can be met with just these three, especially the class and sequence diagrams.
 
+---
+
 # Class Diagrams
 
 +++
 
-## Components in a Class Diagram
+#### Components in a Class Diagram
 
 Class diagrams are used to describe objects **statically**.
 * Note that we're not assuming anything about what will actually happen in the program -- we're just noting everything that the object *has* or *could have*.
@@ -53,7 +57,7 @@ They're usually represented by a box with a title and some text:
 
 +++
 
-## Interfaces
+#### Interfaces
 
 `Interfaces` are the heart of object-oriented design. Most of the time, it's ideal to design objects in such a way that all we need to know is that they expose certain methods.
 
@@ -67,7 +71,7 @@ They're usually represented by a box with a title and some text:
 
 +++
 
-## Classes
+#### Classes
 
 Classes 
 
@@ -75,9 +79,9 @@ Classes
 
 <img src="./SomeClass.dot.png" alt="">
 
----
++++
 
-## Interfaces vs. Classes
+#### Interfaces vs. Classes
 
 <div style="width: 100%; display: flex; align-items: center; justify-content: center;">
 <img src="./SomeClass.dot.png" alt="">
@@ -87,3 +91,4 @@ Classes
 
 ---
 
+####
