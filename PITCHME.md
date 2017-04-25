@@ -2,23 +2,22 @@
 
 A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
 
-
 ---
 
 #### UML
 
 * It's short for "Unified Modeling Language"
-* Goal: make sure we can all speak the same language in OOP design, independent of programming language.
-* It originally came from Rational Labs employees who organized "UML Partners", who worked to develop standards for communicating the structure of and interaction between objects in OOP.
+* Goal: make sure we can all speak the same language in OOP design, independent of programming language.<!-- .element: class="fragment" -->
+* It originally came from Rational Labs employees who organized "UML Partners", who worked to develop standards for communicating the structure of and interaction between objects in OOP.<!-- .element: class="fragment" -->
 
 +++
 
 Note how we phrased that: "communicating the **structure** of and **interaction** between objects" (emphasis added). In this class, we'll use three diagrams related to these two things:
-* Structure
-    * Class diagrams
-    * Object diagrams
+* Structure 
+    * Class diagrams <!-- .element: class="fragment" -->
+    * Object diagrams <!-- .element: class="fragment" -->
 * Interaction
-    * Sequence diagrams
+    * Sequence diagrams <!-- .element: class="fragment" -->
 +++
 
 #### Object Structure
@@ -34,7 +33,7 @@ Note how we phrased that: "communicating the **structure** of and **interaction*
 
 +++
 
-There are others, but we won't go into them. Many needs can be met with just these three, especially the class and sequence diagrams.
+There are other diagram types specified in UML, but we won't go into them. Many needs can be met with just these three, especially the class and sequence diagrams.
 
 ---
 
@@ -46,14 +45,18 @@ There are others, but we won't go into them. Many needs can be met with just the
 
 Class diagrams are used to describe objects **statically**.
 * Note that we're not assuming anything about what will actually happen in the program -- we're just noting everything that the object *has* or *could have*.
+ <!-- .element: class="fragment" -->
+
++++
 
 The bread and butter of class diagrams are our object descriptions, which are usually one of:
+
 * An **interface**
 * A **class**
 
-They're usually represented by a box with a title and some text:
+They're usually represented by a box with a title and some text: 
 
-<img src="GenericObjectDescription.dot.png" alt="">
+<img src="GenericObjectDescription.dot.png" alt="" c;ass="fragment">
 
 +++
 
@@ -61,9 +64,11 @@ They're usually represented by a box with a title and some text:
 
 `Interfaces` are the heart of object-oriented design. Most of the time, it's ideal to design objects in such a way that all we need to know is that they expose certain methods.
 
++++
+
 * Methods correspond to behaviors we expect each object to have -- the object is responsible for knowing what to do with the method call.
-* Object may or may not use internal state (AKA "members") to implement the functionality of their interfaces.
-    * We don't care, though -- we just want to know that we can expect them to let us use the methods we design, and that's it.
+* Object may or may not use internal state (AKA "members") to implement the functionality of their interfaces. <!-- .element: class="fragment" -->
+    * We don't care, though -- we just want to know that we can expect them to let us use the methods we design, and that's it. <!-- .element: class="fragment" -->
 
 +++
 
@@ -79,7 +84,7 @@ Classes
 
 <img src="./SomeClass.dot.png" alt="">
 
-+++
+---
 
 #### Interfaces vs. Classes
 
@@ -91,4 +96,76 @@ Classes
 
 ---
 
-####
+#### Relationships in Class Diagrams
+
+* Composition
+    * Aggregation
+* Inheritance
+    * Implementation
+
+---
+
+#### Composition
+
+AKA "has-a".
+
+![](CompositionDiamond.dot.png)
+
+This means <!-- .element: class="fragment" -->
+
+
+#### Composition note: Aggregation
+
+Also "has-a". There's a visual and slight semantic distinction:
+
+---
+
+#### Inheritance
+
+AKA "is-a".
+
+![](InheritanceArrow.dot.png)
+
++++
+
+Inheritance is an object-oriented typing mechanism that encapsulates the **Liskov Substitution Principle**. Borrowing a definition of it from the Wikipedia article:
+
+> [I]f S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program....
+
++++
+
+In plainer English, I can say that any code that uses a class or interface of type `Foo`  will also accept some class `Bar` if it inherits from `Foo`.
+
+```java
+// Java-like pseudocode
+class Foo {}
+class Bar : Foo {} // means Bar is a subtype of Foo
+class Unrelated {}
+
+void do_something_with(f: Foo) {
+    // Code!
+}
+
+foo1 = Foo();
+do_something_with(); // Valid, it's a Foo
+
+foo2 = Bar();
+do_something_with(); // Valid, it's a Foo also -- because Bar : Foo
+
+u = Unrelated();
+do_something_with(u); // Type error -- we can't substitute a Unrelated for a Foo
+```
+
+---
+
+## Inheritance note: Implementation 
+
+Also "is-a", also referred to as inheritance. However, you use this specifically with interfaces, to show that no implementation is being inherited. Here's how you represent it in UML:
+
+![](ImplementationArrow.dot.png)
+
++++
+
+#### Terminology: "Extends" vs "Implements"
+
+TODO: Pedantic stuff here.
