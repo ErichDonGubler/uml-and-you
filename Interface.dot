@@ -1,0 +1,16 @@
+digraph {
+	node[shape=record];
+
+	SomeInterface [
+		label=<{
+			<br/>
+			<font point-size="16">&lt;&lt;Interface&gt;&gt;</font><br/>
+			<b><font point-size="20">SomeInterface</font></b><br/>
+			<br/>
+			|
+			<br/>
+			+<b>method1</b>(input: float): void<br align="left"/>
+			<br/>
+		}>
+	];
+}

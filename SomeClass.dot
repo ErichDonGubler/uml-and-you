@@ -1,0 +1,34 @@
+digraph {
+	node[shape=record];
+
+	SomeClass [
+		label=<{
+			<br/>
+			<b><font point-size="20">SomeClass</font></b>
+			<br/>
+			<br/>
+			|
+			<br/>
+			+<b>publicMember</b>: bool<br align="left"/>
+			<br/>
+			-<b>privateMember</b>: float<br align="left"/>
+			<br/>
+			#<b>protectedMember</b>: string<br align="left"/>
+			<br/>
+			|
+			<br/>
+			+<b>publicMethod</b>(input: int): outputType<br align="left"/>
+			<br/>
+			-<b>privateMethod</b>(input: int): void<br align="left"/>
+			<br/>
+			#<b>protectedMethod</b>(): void<br align="left"/>
+			<br/>
+			<u>+<b>publicStaticMethod</b>(input: int): outputType<br align="left"/></u>
+			<br/>
+			<u>-<b>privateStaticMethod</b>(input: int): void<br align="left"/></u>
+			<br/>
+			<u>#<b>protectedStaticMethod</b>(): void<br align="left"/></u>
+			<br/>
+		}>
+	];
+}
