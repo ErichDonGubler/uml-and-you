@@ -1,5 +1,5 @@
 # CS 3450: UML and You 
-## A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
+#### A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
 
 ---
 
@@ -9,34 +9,34 @@
 * Goal: make sure we can all speak the same language in OOP design, independent of programming language.
 * It originally came from Rational Labs employees who organized "UML Partners", who worked to develop standards for communicating the structure of and interaction between objects in OOP.
 
----
++++
 
-## UML
-
-Note how we phrased that: "communicating the structure of and interaction between objects". In this class, we'll use three diagrams related to these two things:
-* Structure
-  * Class diagrams: describes objects **statically**
-  * Object diagrams: describes objects at **runtime**, and how an object's members may look over the course of its lifetime
-* Interaction
-  * Sequence diagrams: describes ***execution flow*** by *showing method calls on the stack*
-
----
-
-## UML
-
+Note how we phrased that: "communicating the **structure** of and **interaction** between objects" (emphasis added). In this class, we'll use three diagrams related to these two things:
 * Structure
     * Class diagrams
     * Object diagrams
 * Interaction
     * Sequence diagrams
++++
+
+## Object Structure
+
+* Class diagrams: describes objects **statically**
+* Object diagrams: describes objects at **runtime**, and how an object's members may look over the course of its lifetime
+
++++
+
+## Object Interaction
+
+* Sequence diagrams: describes ***execution flow*** by *showing method calls on the stack*
+
++++
 
 There are others, but we won't go into them. Many needs can be met with just these three, especially the class and sequence diagrams.
 
----
+# Class Diagrams
 
-# Class diagrams
-
----
++++
 
 ## Components in a Class Diagram
 
@@ -47,19 +47,11 @@ The bread and butter of class diagrams are our object descriptions, which are us
 * An **interface**
 * A **class**
 
----
-
-## Components in a Class Diagram
-
-The bread and butter of class diagrams are our object descriptions, which are usually one of:
-* An **interface**
-* A **class**
-
 They're usually represented by a box with a title and some text:
 
 <img src="GenericObjectDescription.dot.png" alt="">
 
----
++++
 
 ## Interfaces
 
@@ -69,17 +61,17 @@ They're usually represented by a box with a title and some text:
 * Object may or may not use internal state (AKA "members") to implement the functionality of their interfaces.
     * We don't care, though -- we just want to know that we can expect them to let us use the methods we design, and that's it.
 
----
-
-## Interfaces
++++
 
 <img src="./Interface.dot.png" alt="">
 
----
++++
 
 ## Classes
 
 Classes 
+
++++
 
 <img src="./SomeClass.dot.png" alt="">
 
