@@ -1,3 +1,6 @@
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaid.min.js"></script>
+<script defer >mermaid.initialize({startOnLoad:true});</script>
+
 # CS 3450: UML and You 
 
 A quick explanation of how to write UML consistently and expressively <!-- class: fragment -->
@@ -41,13 +44,13 @@ There are other diagram types specified in UML, but we won't go into them. Many 
 
 +++
 
-#### Components in a Class Diagram
-
 Class diagrams are used to describe objects **statically**.
 * Note that we're not assuming anything about what will actually happen in the program -- we're just noting everything that the object *has* or *could have*.
  <!-- .element: class="fragment" -->
 
 +++
+
+#### Components in a Class Diagram
 
 The bread and butter of class diagrams are our object descriptions, which are usually one of:
 
@@ -58,9 +61,13 @@ They're usually represented by a box with a title and some text:
 
 <img src="GenericObjectDescription.dot.png" alt="" c;ass="fragment">
 
-+++
+---
 
 #### Interfaces
+
+<img src="./Interface.dot.png" alt="">
+
++++
 
 `Interfaces` are the heart of object-oriented design. Most of the time, it's ideal to design objects in such a way that all we need to know is that they expose certain methods.
 
@@ -70,19 +77,15 @@ They're usually represented by a box with a title and some text:
 * Object may or may not use internal state (AKA "members") to implement the functionality of their interfaces. <!-- .element: class="fragment" -->
     * We don't care, though -- we just want to know that we can expect them to let us use the methods we design, and that's it. <!-- .element: class="fragment" -->
 
-+++
-
-<img src="./Interface.dot.png" alt="">
-
-+++
+---
 
 #### Classes
 
-Classes 
+<img src="./SomeClass.dot.png" alt="">
 
 +++
 
-<img src="./SomeClass.dot.png" alt="">
+TODO: Describe classes!
 
 ---
 
@@ -158,7 +161,7 @@ do_something_with(u); // Type error -- we can't substitute a Unrelated for a Foo
 
 ---
 
-## Inheritance note: Implementation 
+## Inheritance note: Implementation (classes vs. interfaces, again)
 
 Also "is-a", also referred to as inheritance. However, you use this specifically with interfaces, to show that no implementation is being inherited. Here's how you represent it in UML:
 
@@ -169,3 +172,56 @@ Also "is-a", also referred to as inheritance. However, you use this specifically
 #### Terminology: "Extends" vs "Implements"
 
 TODO: Pedantic stuff here.
+
+---
+
+## Sequence Diagrams
+
+Sequence diagrams show how the execution stack will look during specific "flows" of a design. It's useful for showing *how things will actually work*, especially when combined with class diagrams: 
+
+<div class="mermaid">
+sequenceDiagram
+    activate Server
+    Server->>+SecureDatabase: get(rowKey: key)
+        SecureDatabase->>+RealDatabase: get(rowKey: key)
+        RealDatabase-->>-SecureDatabase: value: Value
+    SecureDatabase-->>-Server: value: Value
+    deactivate Server
+</div>
+
+<div class="mermaid">
+sequenceDiagram
+    activate Main
+    Main->>+RealDatabase: new RealDatabase(databaseFilename: string)
+    RealDatabase-->>-Main: database: IDatabase
+
+    Main->>+CacheDatabase: new CacheDatabase(database)
+    CacheDatabase-->>-Main: database: IDatabase
+
+    Main->>+RealDatabase: new RealDatabase(databaseFilename: string)
+    RealDatabase-->>-Main: userDatabase: IDatabase
+
+    Main->>+SecureDatabase: new SecureDatabase(database: IDatabase, userDatabase: IDatabase)
+    SecureDatabase-->>-Main: database: IDatabase
+    deactivate Main
+</div>
+
++++
+
+#### Breaking down a sequence diagram
+
+Let's use some concrete examples to analyze what each part of the sequence diagram is for.
+
+Suppose we have a class diagram for a design requesting that 
+
++++
+
+For those not versed in the Proxy pattern, how this design works is we define classes that implement an interface guaranteeing the availability of CRUD operations for any instance -- namely, `IDatabase`.
+
+---
+
+## Object diagrams
+
+![](SampleObjectDiagram.dot.png)
+
+
